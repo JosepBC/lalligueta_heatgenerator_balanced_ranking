@@ -6,6 +6,7 @@ import random
 from eventmanager import Evt
 from HeatGenerator import HeatGenerator, HeatPlan, HeatPlanSlot, SeedMethod
 from RHUI import UIField, UIFieldType, UIFieldSelectOption
+from .heat_sizes import generate_heat_sizes
 
 logger = logging.getLogger(__name__)
 
@@ -52,20 +53,19 @@ def generateBalancedLadder(rhapi, generate_args=None):
     unseeded_pilots = sorted(list(range(seed_offset, total_pilots + seed_offset)), reverse=True)
 
     # Calculate the number of heats needed and distribute pilots inversely
+    heat_sizes = generate_heat_sizes(total_pilots)
     num_heats = (total_pilots + available_seats - 1) // available_seats  # Ceiling division
     pilots_per_heat = total_pilots // num_heats
     extra_pilots = total_pilots % num_heats
 
-    for heat_index in range(num_heats):
+    for heat_index, heat_size in enumerate(heat_sizes):
         heat = HeatPlan(
             letters[heat_index] + ' ' + suffix,
             []
         )
 
         # Determine the number of pilots for this heat inversely
-        current_heat_pilots = pilots_per_heat + (1 if heat_index >= num_heats - extra_pilots else 0)
-
-        for _ in range(current_heat_pilots):
+        for _ in range(heat_size):
             if unseeded_pilots:
                 heat.slots.append(HeatPlanSlot(SeedMethod.INPUT, unseeded_pilots.pop(0) + 1))
 
