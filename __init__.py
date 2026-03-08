@@ -76,7 +76,7 @@ def generateBalancedLadder(rhapi, generate_args=None):
 def register_handlers(args):
     for generator in [
         HeatGenerator(
-            "Ranked balanced fill",
+            "La Lligueta: Ranked balanced fill",
             generateBalancedLadder,
             {
                 'advances_per_heat': 0,
