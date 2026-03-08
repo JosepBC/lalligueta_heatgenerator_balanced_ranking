@@ -55,9 +55,6 @@ def generateBalancedLadder(rhapi, generate_args=None):
 
     # Calculate the number of heats needed and distribute pilots inversely
     heat_sizes = generate_heat_sizes(total_pilots)
-    num_heats = (total_pilots + available_seats - 1) // available_seats  # Ceiling division
-    pilots_per_heat = total_pilots // num_heats
-    extra_pilots = total_pilots % num_heats
 
     for heat_index, heat_size in enumerate(heat_sizes):
         heat = HeatPlan(
