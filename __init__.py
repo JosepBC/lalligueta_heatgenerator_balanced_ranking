@@ -19,6 +19,7 @@ def getTotalPilots(rhapi, generate_args):
         else:
             race_class = rhapi.db.raceclass_by_id(input_class_id)
             class_results = rhapi.db.raceclass_results(race_class)
+            # Do I have a result of input class?
             if class_results and type(class_results) == dict:
                 # fill from available results
                 total_pilots = len(class_results['by_race_time'])
