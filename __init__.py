@@ -1,11 +1,9 @@
 ''' Heat generator for ladders '''
 
 import logging
-import RHUtils
-import random
 from eventmanager import Evt
 from HeatGenerator import HeatGenerator, HeatPlan, HeatPlanSlot, SeedMethod
-from RHUI import UIField, UIFieldType, UIFieldSelectOption
+from RHUI import UIField, UIFieldType
 from .heat_sizes import generate_heat_sizes
 
 logger = logging.getLogger(__name__)
