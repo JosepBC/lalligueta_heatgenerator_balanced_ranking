@@ -29,7 +29,7 @@ class TestGenerateHeatSizes(unittest.TestCase):
         self.assertEqual(generate_heat_sizes(24), [4, 5, 5, 5, 5])
 
     def test_total_pilots_preserved(self):
-        for pilots in range(10, 30):
+        for pilots in range(1, 30):
             heats = generate_heat_sizes(pilots)
             self.assertEqual(sum(heats), pilots)
 
