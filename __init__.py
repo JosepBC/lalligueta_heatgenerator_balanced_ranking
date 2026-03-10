@@ -34,6 +34,7 @@ def getTotalPilots(rhapi, generate_args):
 
 def generateBalancedLadder(rhapi, generate_args=None):
     available_seats = generate_args.get('available_seats')
+    logger.info(f"Max number of pilots in a heat: {available_seats}")
     suffix = rhapi.__(generate_args.get('suffix', 'Main'))
 
     total_pilots = getTotalPilots(rhapi, generate_args)
@@ -54,7 +55,9 @@ def generateBalancedLadder(rhapi, generate_args=None):
     unseeded_pilots = sorted(list(range(seed_offset, total_pilots + seed_offset)), reverse=True)
 
     # Calculate the number of heats needed and distribute pilots inversely
+    logger.info(f"Will generate heats for {total_pilots} pilots")
     heat_sizes = generate_heat_sizes(total_pilots)
+    logger.info(f"Heat sizes: {heat_sizes}")
 
     for heat_index, heat_size in enumerate(heat_sizes):
         heat = HeatPlan(
