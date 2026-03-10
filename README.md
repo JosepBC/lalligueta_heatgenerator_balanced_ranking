@@ -34,6 +34,7 @@ The core logic of the plugin is implemented in the `generateBalancedLadder` func
    - Using generate_heat_sizes we generate the heat sizes, that can be 5, 4 or 3. Prioritizing groups of 5, then of 4 and finally of 3. Groups with less pilots will be for the last ones of the classification and the first ones to fly.
    So for a race of 25 pilots we would have 5 groups of 4, and from there to 21 we would follow the following algorithm:
    ![Heat sizes](doc/heat_sizes.png)
+
    And when we are back to 20, it's all groups of 4.
 3. **Create Heats**:
    - Assign a unique name to each heat using letters (e.g., "A", "B") and the provided suffix.
