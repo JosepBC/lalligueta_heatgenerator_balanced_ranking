@@ -16,16 +16,16 @@ class TestGenerateHeatSizes(unittest.TestCase):
         self.assertEqual(generate_heat_sizes(20), [5, 5, 5, 5])
         self.assertEqual(generate_heat_sizes(25), [5, 5, 5, 5, 5])
 
-    def test_minus_one(self):
+    def test_minus_four(self):
         self.assertEqual(generate_heat_sizes(21), [3, 3, 5, 5, 5])
 
-    def test_minus_two(self):
+    def test_minus_three(self):
         self.assertEqual(generate_heat_sizes(22), [3, 4, 5, 5, 5])
 
-    def test_minus_three(self):
+    def test_minus_two(self):
         self.assertEqual(generate_heat_sizes(23), [4, 4, 5, 5, 5])
 
-    def test_minus_four(self):
+    def test_minus_one(self):
         self.assertEqual(generate_heat_sizes(24), [4, 5, 5, 5, 5])
 
     def test_total_pilots_preserved(self):
