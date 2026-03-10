@@ -35,7 +35,7 @@ The core logic of the plugin is implemented in the `generateBalancedLadder` func
    So for a race of 25 pilots we would have 5 groups of 4, and from there to 21 we would follow the following algorithm:
    ![Heat sizes](doc/heat_sizes.png)
 
-   And when we are back to 20, it's all groups of 4.
+   And when we are back to 20, it's all groups of 5 and from there same algorithm.
 3. **Create Heats**:
    - Assign a unique name to each heat using letters (e.g., "A", "B") and the provided suffix.
    - Populate each heat with pilots, following the distribution given in the previous step.
